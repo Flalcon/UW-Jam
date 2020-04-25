@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public Image i;
     public Sprite healthSprite1;
     public Sprite healthSprite2;
     public Sprite healthSprite3;
@@ -16,36 +15,23 @@ public class Health : MonoBehaviour
     public Sprite healthSprite8;
 
     public GameObject player;
-    private PlayerMovement p;
 
-    Sprite[] spr;
+    Image[] images;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        for (int i = 8; i > 1; i--) {
-            Sprites[i] = healthSprite1;
-        }
-        */
-        spr = new Sprite[8];
-        p = player.GetComponent<PlayerMovement>();
-        spr[0] = healthSprite1;
-        spr[1] = healthSprite2;
-        spr[2] = healthSprite3;
-        spr[3] = healthSprite4;
-        spr[4] = healthSprite5;
-        spr[5] = healthSprite6;
-        spr[6] = healthSprite7;
-        spr[7] = healthSprite8;
+        //images = gameObject.GetComponentInChildren<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Health: " + p.playerHealth);
-        
-        i.sprite  = spr[p.playerHealth-1];
-        
+
+    }
+
+    public void Change()
+    {
+       
     }
 }

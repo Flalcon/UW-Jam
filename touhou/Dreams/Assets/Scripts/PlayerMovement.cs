@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
             B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
         }
 
-        if (playerHealth <= 0)
+        if (playerHealth == 0)
         {
             Destroy(gameObject);
             Debug.Log("Game Over");
@@ -80,10 +80,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy Bullet") || collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy Bullet"))
         {
             Destroy(collision.gameObject);
-            playerHealth--;
+            playerHealth -= 1; 
         }
     }
 }

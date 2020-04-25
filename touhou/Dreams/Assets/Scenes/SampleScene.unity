@@ -207,28 +207,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5b3b47e171c80498fc8aea1008eebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  i: {fileID: 59403790}
-  healthSprite1: {fileID: -2157064650557968168, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite1: {fileID: 2199169274552157093, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite2: {fileID: -5944594253280435001, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite2: {fileID: 2589411039893331132, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite3: {fileID: 5322107171456294347, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite3: {fileID: 4124937776064215653, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite4: {fileID: -2982010589708597570, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite4: {fileID: 3505128454947486105, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite5: {fileID: 3505128454947486105, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite5: {fileID: -2982010589708597570, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite6: {fileID: 4124937776064215653, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite6: {fileID: 5322107171456294347, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite7: {fileID: 2589411039893331132, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite7: {fileID: -5944594253280435001, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-  healthSprite8: {fileID: 2199169274552157093, guid: 9427bd30621884c4f83c921c2a02f0dc,
+  healthSprite8: {fileID: -2157064650557968168, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
   player: {fileID: 600350783}
 =======
   player: {fileID: 0}
 >>>>>>> 3f74ec35fb2fe13a9113502a246985e3040fd8fb
+=======
+>>>>>>> parent of d6fcbca... Fixed Health UI & Lasers
 --- !u!1 &149355750
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +727,7 @@ MonoBehaviour:
   hsp: 0
   vsp: 0
   spd: 1
-  playerHealth: 8
+  playerHealth: 100
   PB: {fileID: 3922044402094995999, guid: b7913fdbb4803b549a2deb318c12ca4f, type: 3}
 --- !u!212 &600350786
 SpriteRenderer:
