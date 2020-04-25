@@ -223,7 +223,12 @@ MonoBehaviour:
     type: 3}
   healthSprite8: {fileID: -2157064650557968168, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
+<<<<<<< HEAD
+<<<<<<< HEAD
   player: {fileID: 600350783}
+=======
+  player: {fileID: 0}
+>>>>>>> 3f74ec35fb2fe13a9113502a246985e3040fd8fb
 =======
 >>>>>>> parent of d6fcbca... Fixed Health UI & Lasers
 --- !u!1 &149355750
