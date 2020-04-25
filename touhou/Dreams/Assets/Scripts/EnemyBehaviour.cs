@@ -81,7 +81,7 @@ public class EnemyBehaviour : MonoBehaviour
                     GameObject L = Instantiate(EL);
                     L.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                 }
-                gameObject.transform.SetPositionAndRotation(Vector3.Lerp(gameObject.transform.position, newpos, 1/spd), new Quaternion());
+                    gameObject.transform.SetPositionAndRotation(Vector3.Lerp(gameObject.transform.position, newpos, 1/spd), new Quaternion());
                 break;
 
         }
@@ -90,7 +90,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         BT -= Time.deltaTime;
 
-        if (enemyHealth == 0)
+        if (enemyHealth == 0 || gameObject.transform.position.x <= -20)
         {
             Destroy(gameObject);
         }
