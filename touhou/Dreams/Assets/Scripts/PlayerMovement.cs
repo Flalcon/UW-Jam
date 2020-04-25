@@ -10,11 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public float spd = 0.01f;
     public int health = 5;
     public GameObject PB;
+    private GameObject enemyBullet;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyBullet = GameObject.FindGameObjectWithTag("Enemy Bullet");
     }
 
     // Update is called once per frame
@@ -77,5 +78,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
 
+    }
 }

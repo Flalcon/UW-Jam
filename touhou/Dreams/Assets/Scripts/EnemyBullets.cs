@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyBullets : MonoBehaviour
 {
+    public GameObject player;
+
+    void Start()
+    {
+
+    }
+
     void Update()
     {
             if (gameObject.transform.position.x >= -10)
@@ -17,4 +24,5 @@ public class EnemyBullets : MonoBehaviour
             }
 
     }
+
 }
