@@ -14,18 +14,20 @@ public class Health : MonoBehaviour
     public Sprite healthSprite7;
     public Sprite healthSprite8;
 
+    public GameObject player;
+
     Image[] images;
 
     // Start is called before the first frame update
     void Start()
     {
-        images = gameObject.GetComponentInChildren<Image>();
+        //images = gameObject.GetComponentInChildren<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Change()
