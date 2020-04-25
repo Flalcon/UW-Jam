@@ -50,7 +50,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else {
             //Fancy Movement
-            //Fancy whatever
+            //Fancy bullet patterns/laser!
 
 
 
