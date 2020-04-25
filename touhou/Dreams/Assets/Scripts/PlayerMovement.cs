@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public float spd = 0.01f;
     public int health = 5;
     public GameObject PB;
-    private GameObject enemyBullet;
+    private BoxCollider2D playerBC;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyBullet = GameObject.FindGameObjectWithTag("Enemy Bullet");
+        playerBC = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -78,8 +78,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.CompareTag("Enemy Bullet"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            Debug.Log("hit by bullet");
+        }
     }
 }
