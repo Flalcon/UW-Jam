@@ -224,11 +224,7 @@ MonoBehaviour:
     type: 3}
   healthSprite8: {fileID: 2199169274552157093, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
-<<<<<<< HEAD
   player: {fileID: 600350783}
-=======
-  player: {fileID: 0}
->>>>>>> 3f74ec35fb2fe13a9113502a246985e3040fd8fb
 --- !u!1 &149355750
 GameObject:
   m_ObjectHideFlags: 0
