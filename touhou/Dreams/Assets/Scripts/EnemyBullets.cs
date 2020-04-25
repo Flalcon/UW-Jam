@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBullets : MonoBehaviour
 {
     public GameObject player;
+    public Vector2 dir;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class EnemyBullets : MonoBehaviour
     {
             if (gameObject.transform.position.x >= -10)
             {
-                gameObject.transform.Translate(new Vector3(-2f * Time.deltaTime, 0, 0));
+                gameObject.transform.Translate(dir * -Time.deltaTime);
             }
             else
             {

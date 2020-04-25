@@ -8,15 +8,13 @@ public class SpawnManager : MonoBehaviour
     public float elapsedTime = 0.0f;
     public GameObject enemyObject;
     public float xSpawnPos = 11.0f;
-    public float ySpawnRange = 4.5f; 
-
-    // Start is called before the first frame update
+    public float ySpawnRange = 4.5f;
+    
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         elapsedTime += Time.deltaTime;
