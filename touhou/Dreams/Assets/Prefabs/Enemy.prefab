@@ -100,6 +100,8 @@ MonoBehaviour:
   enemyHealth: 0
   type: 0
   spd: 1
+  bulletspd: 0
+  laserEye: {fileID: 21300000, guid: 21a5d91673f9f1348893abd632ed3d92, type: 3}
 --- !u!50 &345612023700744683
 Rigidbody2D:
   serializedVersion: 4

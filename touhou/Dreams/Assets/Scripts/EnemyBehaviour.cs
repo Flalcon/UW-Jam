@@ -10,7 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int type;
     public float spd;
     public float bulletspd;
-
+    public Sprite laserEye;
 
     void Start()
     {
@@ -27,6 +27,12 @@ public class EnemyBehaviour : MonoBehaviour
                 spd = 2f;
                 enemyHealth = 40;
                 break;
+
+            case 2:
+                spd = 4f;
+                enemyHealth = 200;
+                gameObject.GetComponent<SpriteRenderer>().sprite = laserEye;
+                break;
                 
         }
         bulletspd = 3;
@@ -35,28 +41,44 @@ public class EnemyBehaviour : MonoBehaviour
    
     void Update()
     {
-        //move towards player
-        //shoots bullets
-        if (type < 2)
-        {
-            gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, 0, 0));
-            if (BT <= 0)
-            {
-                GameObject B = Instantiate(EB);
-                B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
-                B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
-                BT = 2;
-            }
-        }
-        else {
-            //Fancy Movement
-            //Fancy bullet patterns/laser!
-
-
-
-
-        }
         
+        switch (type) {
+            case 0:
+                gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, 0, 0));
+                if (BT <= 0)
+                {
+                    GameObject B = Instantiate(EB);
+                    B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
+                    B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
+                    BT = 2;
+                }
+                break;
+            case 1:
+                gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, 0, 0));
+                if (BT <= 0)
+                {
+                    GameObject B = Instantiate(EB);
+                    B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
+                    B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
+                    BT = 2;
+                }
+                break;
+            case 2:
+                //move to a new position
+                //fire laser
+                //gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, 0, 0));
+                gameObject.transform.SetPositionAndRotation(Vector2.Lerp(gameObject.transform.position, new Vector2(gameObject.transform.position.x - 5, gameObject.transform.position.y), 1/spd), new Quaternion());
+
+                if (BT <= 0)
+                {
+                    GameObject B = Instantiate(EB);
+                    B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
+                    B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
+                    BT = 2;
+                }
+                break;
+
+        }
         
         
 
@@ -66,6 +88,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
