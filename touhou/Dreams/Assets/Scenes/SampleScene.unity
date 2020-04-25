@@ -223,6 +223,7 @@ MonoBehaviour:
     type: 3}
   healthSprite8: {fileID: -2157064650557968168, guid: 9427bd30621884c4f83c921c2a02f0dc,
     type: 3}
+  player: {fileID: 0}
 --- !u!1 &149355750
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ MonoBehaviour:
   hsp: 0
   vsp: 0
   spd: 1
-  playerHealth: 100
+  playerHealth: 8
   PB: {fileID: 3922044402094995999, guid: b7913fdbb4803b549a2deb318c12ca4f, type: 3}
 --- !u!212 &600350786
 SpriteRenderer:
