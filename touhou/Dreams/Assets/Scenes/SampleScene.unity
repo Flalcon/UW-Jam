@@ -1121,6 +1121,11 @@ PrefabInstance:
       propertyPath: spd
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 749600381802562826, guid: 0139332500363dd4782037ec59646865,
+        type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 345612023700744683, guid: 0139332500363dd4782037ec59646865,
         type: 3}
       propertyPath: m_BodyType
