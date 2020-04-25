@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
+    public int health = 5;
     public GameObject PB;
 
     // Start is called before the first frame update
@@ -29,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
             B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
         }
 
+        if (health <= 0) {
+            GameOver();
+        }
+
     }
 
     public void Movement() {
@@ -43,13 +48,13 @@ public class PlayerMovement : MonoBehaviour
         if (left) { hsp -= spd; }
         if (right) {hsp += spd; }
 
-        hsp = Mathf.Clamp(hsp, -1, 1);
-        vsp = Mathf.Clamp(vsp, -2, 2);
+        hsp = Mathf.Clamp(hsp, -5, 5);
+        vsp = Mathf.Clamp(vsp, -5, 5);
 
         if (up == down) {
             if (Mathf.Abs(vsp) > 0.2)
             {
-                vsp *= 0.9f;
+                vsp *= 0.8f;
             }
             else { vsp = 0; }
         }
@@ -58,12 +63,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Mathf.Abs(hsp) > 0.2)
             {
-                hsp *= 0.9f;
+                hsp *= 0.8f;
             }
             else { hsp = 0; }
         }
 
         gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime,vsp * Time.deltaTime,0));
+    }
+
+    public void GameOver() {
+
+
+
     }
 
 

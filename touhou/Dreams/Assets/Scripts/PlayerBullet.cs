@@ -12,8 +12,8 @@ public class PlayerBullet : MonoBehaviour
     
     void Update()
     {
-        if (gameObject.transform.position.x <= 100) {
-            gameObject.transform.Translate(new Vector3(2f * Time.deltaTime,0,0));
+        if (gameObject.transform.position.x <= 10) {
+            gameObject.transform.Translate(new Vector3(4f * Time.deltaTime,0,0));
         }
         else {
             //make a pool of objects set up instead of destroying each object
