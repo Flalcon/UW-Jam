@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
-    public int playerHealth = 100;
+    public int playerHealth = 8;
     public GameObject PB;
 
 
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy Bullet"))
         {
             Destroy(collision.gameObject);
-            playerHealth -= 20; 
+            playerHealth -= 1; 
         }
     }
 }
