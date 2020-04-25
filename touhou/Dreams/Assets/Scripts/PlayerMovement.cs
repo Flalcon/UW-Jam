@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
-    public int health = 5;
+    public int playerHealth = 100;
     public GameObject PB;
 
 
@@ -31,10 +31,11 @@ public class PlayerMovement : MonoBehaviour
             B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
         }
 
-        if (health <= 0) {
-            GameOver();
+        if (playerHealth == 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("Game Over");
         }
-
     }
 
     public void Movement() {
@@ -72,9 +73,8 @@ public class PlayerMovement : MonoBehaviour
         gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime,vsp * Time.deltaTime,0));
     }
 
-    public void GameOver() {
-
-
+    public void GameOver() 
+    {
 
     }
 
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy Bullet"))
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            playerHealth -= 20; 
         }
     }
 }

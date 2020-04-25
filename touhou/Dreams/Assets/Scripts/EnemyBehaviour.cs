@@ -6,6 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject EB;
     public float BT;
+    public int enemyHealth = 60;
 
     void Start()
     {
@@ -23,15 +24,21 @@ public class EnemyBehaviour : MonoBehaviour
             B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
             BT = 2;
         }
+
         BT -= Time.deltaTime;
+
+        if (enemyHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player Bullet"))
         {
-            Destroy(gameObject);
             Destroy(collision.gameObject);
+            enemyHealth -= 20;
         }
     }
 }
