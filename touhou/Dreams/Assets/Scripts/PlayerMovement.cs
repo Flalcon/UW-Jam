@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
+    public GameObject PB;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,11 @@ public class PlayerMovement : MonoBehaviour
            Movement();
         }
 
-        bool shoot = Input.GetKey("n") || Input.GetKey(KeyCode.Space);
+        bool shoot = Input.GetKeyDown("n") || Input.GetKeyDown(KeyCode.Space);
         if (shoot) {
-            
-
+           GameObject B = Instantiate(PB);
+            B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
         }
-
 
     }
 
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         bool down = Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow);
         bool left = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
         bool right = Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow);
-        
+         
        // bool bomb = Input.GetKey("n") || Input.GetKey(KeyCode.Space);
         if (up)   { vsp += spd; }
         if (down) { vsp -= spd; }
