@@ -20,14 +20,8 @@ public class Health : MonoBehaviour
 
     Sprite[] spr;
 
-    // Start is called before the first frame update
     void Start()
     {
-        /*
-        for (int i = 8; i > 1; i--) {
-            Sprites[i] = healthSprite1;
-        }
-        */
         spr = new Sprite[8];
         p = player.GetComponent<PlayerMovement>();
         spr[0] = healthSprite1;
@@ -42,10 +36,7 @@ public class Health : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        Debug.Log("Health: " + p.playerHealth);
-        
+    {   
         i.sprite  = spr[p.playerHealth-1];
-        
     }
 }
