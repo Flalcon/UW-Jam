@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
 
             Vector2 spawnPosition = GenerateSpawnPosition();
             GameObject newEnemy = Instantiate(enemyObject, spawnPosition, enemyObject.transform.rotation);
-            int type = Mathf.RoundToInt(Random.Range(0, 3));
+            int type = Mathf.RoundToInt(Random.Range(4, 4));
             Debug.Log(type);
             newEnemy.GetComponent<EnemyBehaviour>().type = type;//Implement something so we can set spawn positions later(only do this if we have time)
 
