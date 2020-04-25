@@ -24,5 +24,14 @@ public class EnemyBehaviour : MonoBehaviour
             BT = 2;
         }
         BT -= Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player Bullet"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
+    }
 }

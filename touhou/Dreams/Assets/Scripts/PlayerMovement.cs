@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public float spd = 0.01f;
     public int health = 5;
     public GameObject PB;
-    private BoxCollider2D playerBC;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        playerBC = GetComponent<BoxCollider2D>();
+
     }
 
     // Update is called once per frame
@@ -84,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            Debug.Log("hit by bullet");
         }
     }
 }
