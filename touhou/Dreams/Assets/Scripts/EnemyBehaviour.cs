@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public GameObject EB;
+    public GameObject EB, EL;
     public float BT;
     public int enemyHealth;
     public int type;
@@ -72,16 +72,14 @@ public class EnemyBehaviour : MonoBehaviour
                 }
                 break;
             case 2:
-                //move to a new position
-                //fire laser
                 gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, 0, 0));
-                //gameObject.transform.SetPositionAndRotation(Vector2.Lerp(gameObject.transform.position, new Vector2(gameObject.transform.position.x - 5, gameObject.transform.position.y), 1/spd), new Quaternion());
-                
                 break;
             case 3:
 
                 if (newpos == gameObject.transform.position) {
                     newpos = new Vector3(gameObject.transform.position.x - 5, gameObject.transform.position.y, gameObject.transform.position.z);
+                    GameObject L = Instantiate(EL);
+                    L.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                 }
                 gameObject.transform.SetPositionAndRotation(Vector3.Lerp(gameObject.transform.position, newpos, 1/spd), new Quaternion());
                 break;
