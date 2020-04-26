@@ -963,6 +963,7 @@ MonoBehaviour:
   spd: 1
   playerHealth: 8
   PB: {fileID: 3922044402094995999, guid: b7913fdbb4803b549a2deb318c12ca4f, type: 3}
+  score: 0
 --- !u!212 &600350786
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2077,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: 749600381802562824, guid: 0139332500363dd4782037ec59646865,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 749600381802562824, guid: 0139332500363dd4782037ec59646865,
         type: 3}
