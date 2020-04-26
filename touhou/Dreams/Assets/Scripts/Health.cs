@@ -36,7 +36,9 @@ public class Health : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        i.sprite  = spr[p.playerHealth-1];
+    {
+        if (p.playerHealth > 0)
+            i.sprite = spr[p.playerHealth - 1];
+        else { Destroy(gameObject); }
     }
 }

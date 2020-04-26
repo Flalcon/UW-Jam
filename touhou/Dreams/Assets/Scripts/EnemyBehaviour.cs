@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public GameObject EB, EL, poof;
+    public GameObject EB, EL, poof, healthPiece;
     public float BT;
     public int enemyHealth;
     public int type;
@@ -101,8 +101,15 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
 
             if (enemyHealth <= 0) 
-            { 
-                FindObjectOfType<PlayerMovement>().score++;
+            {
+                var player = FindObjectOfType<PlayerMovement>();
+                int pHealth = player.playerHealth;
+                player.score++;
+                if (pHealth < 8 && pHealth > 0) {
+                    if (1/Random.Range(1, pHealth) == 1) {
+                        Instantiate(healthPiece);
+                    }
+                }
                 Vector2 poofPos = GeneratePoofPosition();
                 Instantiate(poof, poofPos, poof.transform.rotation);
             }

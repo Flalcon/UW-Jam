@@ -9,6 +9,7 @@ TagManager:
   - Laser
   - Enemy
   - Poof
+  - Health
   layers:
   - Default
   - TransparentFX

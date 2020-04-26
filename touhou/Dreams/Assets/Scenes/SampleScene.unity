@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Source: {fileID: 491500969}
-  rate: 0
+  rate: 0.03
   tim: 0
 --- !u!212 &303330469
 SpriteRenderer:
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Source: {fileID: 600350783}
-  rate: 0
+  rate: 0.03
   tim: 0
 --- !u!95 &491500973
 Animator:

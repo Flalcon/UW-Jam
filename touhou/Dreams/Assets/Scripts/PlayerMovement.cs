@@ -138,6 +138,13 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(iFrameRoutine());
             } 
         }
+
+        if (collision.gameObject.CompareTag("Health"))
+        {
+            playerHealth++;
+            playerHealth = Mathf.Clamp(playerHealth, 0, 8);
+            Destroy(collision.gameObject);
+        }
     }
 
     IEnumerator iFrameRoutine()
