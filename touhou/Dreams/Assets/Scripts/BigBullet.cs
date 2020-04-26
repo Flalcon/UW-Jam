@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class BigBullet : MonoBehaviour
 {
-    public Transform Player;
+    //public Transform Player;
     //private Transform PPos;
+    private float tim;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = FindObjectOfType<PlayerMovement>().transform;
+        tim = 0.01f;
     }
 
     // Update is called once per frame
     void Update()
     {
         //gameObject.transform.LookAt(player);
-        gameObject.transform.Translate(Time.deltaTime * Mathf.Sign(Player.position.x - gameObject.transform.position.x), Time.deltaTime * Mathf.Sign(Player.position.y - gameObject.transform.position.y), 0);
+        gameObject.transform.Translate(-Time.deltaTime * Mathf.Pow(2,tim) * 2, 0, 0);
+        tim += Time.deltaTime;
     }
 }
