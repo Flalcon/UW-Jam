@@ -9,6 +9,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyObject;
     public float xSpawnPos = 11.0f;
     public float ySpawnRange = 4.5f;
+    private int level = 1;
     
     void Start()
     {
@@ -25,10 +26,9 @@ public class SpawnManager : MonoBehaviour
 
             Vector2 spawnPosition = GenerateSpawnPosition();
             GameObject newEnemy = Instantiate(enemyObject, spawnPosition, enemyObject.transform.rotation);
-            int type = Mathf.RoundToInt(Random.Range(0,3));
-            Debug.Log(type);
+            int type = Mathf.RoundToInt(Random.Range(0,level));
             newEnemy.GetComponent<EnemyBehaviour>().type = type;//Implement something so we can set spawn positions later(only do this if we have time)
-
+            //if (the player has killed x many enemies) {level up, secondsBetweenSpawn gets smaller}
         }
     }
 

@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float spd = 0.01f;
     public int playerHealth = 8;
     public GameObject PB;
+    public int score;
+
 
 
     // Start is called before the first frame update

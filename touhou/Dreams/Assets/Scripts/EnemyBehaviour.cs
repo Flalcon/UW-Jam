@@ -90,8 +90,9 @@ public class EnemyBehaviour : MonoBehaviour
 
         BT -= Time.deltaTime;
 
-        if (enemyHealth == 0 || gameObject.transform.position.x <= -20)
+        if (enemyHealth <= 0 || gameObject.transform.position.x <= -20)
         {
+            if (enemyHealth <= 0) { FindObjectOfType<PlayerMovement>().score++; }
             Destroy(gameObject);
         }
 
