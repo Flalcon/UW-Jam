@@ -4,21 +4,11 @@ using UnityEngine;
 
 public class Poof : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PrintEvent(int die)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        StartCoroutine(stopPoof());
-    }
-
-    IEnumerator stopPoof()
-    {
-        yield return new WaitForSeconds(0.2f);
-        Destroy(gameObject);
+        if (die == 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
