@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public GameObject EB, EL;
+    public GameObject EB, EL, poof;
     public float BT;
     public int enemyHealth;
     public int type;
@@ -104,8 +104,14 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (enemyHealth <= 0 || gameObject.transform.position.x <= -20)
         {
-            if (enemyHealth <= 0) { FindObjectOfType<PlayerMovement>().score++; }
             Destroy(gameObject);
+
+            if (enemyHealth <= 0) 
+            { 
+                FindObjectOfType<PlayerMovement>().score++;
+                Vector2 poofPos = GeneratePoofPosition();
+                Instantiate(poof, poofPos, poof.transform.rotation);
+            }
         }
 
     }
@@ -117,5 +123,12 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(collision.gameObject);
             enemyHealth -= 20;
         }
+    }
+
+    Vector2 GeneratePoofPosition()
+    {
+        float yPos = transform.position.y;
+        float xPos = transform.position.x;
+        return new Vector2(xPos, yPos);
     }
 }

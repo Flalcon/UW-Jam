@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EB: {fileID: 3743485393095861708, guid: 59c8197f324b1a74b80213d7c4af53ec, type: 3}
   EL: {fileID: 3698348113148393228, guid: 98b35bd635770374ab9e2d59916ec4ca, type: 3}
+  poof: {fileID: 6335486997320985641, guid: cab83ae2182a5b646b01be3c334a0936, type: 3}
   BT: 0
   enemyHealth: 0
   type: 0
