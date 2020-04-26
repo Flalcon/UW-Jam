@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public int playerHealth = 8;
     public GameObject PB;
     public int score;
+    private bool isInvincible = false;
 
 
 
@@ -85,7 +86,19 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy Bullet") || collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
-            playerHealth--;
+            
+            if (isInvincible == false)
+            {
+                playerHealth--;
+                isInvincible = true;
+                StartCoroutine(iFrameRoutine());
+            } 
         }
+    }
+
+    IEnumerator iFrameRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isInvincible = false;
     }
 }
