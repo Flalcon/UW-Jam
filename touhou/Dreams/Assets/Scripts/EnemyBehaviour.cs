@@ -59,7 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
                     GameObject C = Instantiate(EB);
                     GameObject D = Instantiate(EB);
                     B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
-                    B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, 0);
+                    B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
                     C.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     C.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
                     D.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
@@ -72,9 +72,15 @@ public class EnemyBehaviour : MonoBehaviour
                 if (BT <= 0)
                 {
                     GameObject B = Instantiate(EB);
+                    GameObject C = Instantiate(EB);
+                    GameObject D = Instantiate(EB);
                     B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
-                    BT = 0.2f;
+                    C.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
+                    C.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
+                    D.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
+                    D.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
+                    BT = 2;
                 }
                 break;
             case 2:
