@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
     public int playerHealth = 8;
-    public GameObject PB;
+    public GameObject PB, LS;
     public int score;
     private bool isInvincible = false;
 
@@ -36,8 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerHealth <= 0)
         {
+            Instantiate(LS);
             Destroy(gameObject);
-            Debug.Log("Game Over");
+            
         }
     }
 
