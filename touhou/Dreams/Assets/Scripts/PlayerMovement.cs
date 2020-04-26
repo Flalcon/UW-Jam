@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
     public int playerHealth = 8;
+    private float posx, posy;
     public GameObject PB, LS;
     public int score;
     private bool isInvincible = false;
@@ -43,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Movement() {
+        posx = gameObject.transform.position.x;
+        posy = gameObject.transform.position.y; 
         bool up = Input.GetKey(("w")) || Input.GetKey(KeyCode.UpArrow);
         bool down = Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow);
         bool left = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
@@ -56,6 +59,45 @@ public class PlayerMovement : MonoBehaviour
 
         hsp = Mathf.Clamp(hsp, -5, 5);
         vsp = Mathf.Clamp(vsp, -5, 5);
+
+
+        if (Mathf.Abs(posx + hsp * Time.deltaTime) < 8.5f)
+        {
+            gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime, 0, 0));
+        }
+        else
+        {
+            hsp = 0;
+            gameObject.transform.SetPositionAndRotation(new Vector3(Mathf.Sign(posx) * 8.5f, posy, 0), new Quaternion());
+        }
+
+        if (Mathf.Abs(posy + vsp * Time.deltaTime) < 4.5f)
+        {
+            gameObject.transform.Translate(new Vector3( 0, vsp * Time.deltaTime, 0));
+        }
+        else
+        {
+            vsp = 0;
+            while (Mathf.Abs(gameObject.transform.position.y) < 4.5f) {
+                //gameObject.transform.SetPositionAndRotation(new Vector3(posx, Mathf.Sign(posy) * 4.5f, 0), new Quaternion());
+                gameObject.transform.Translate(new Vector3(0, Mathf.Sign(posy) * 0.00001f, 0));
+
+            }
+        }
+        /*
+        if (Mathf.Abs(posy + vsp) < 9)
+        {
+            gameObject.transform.Translate(new Vector3(0, vsp * Time.deltaTime, 0));
+        }
+        else {
+            while (gameObject.transform.position.y <= Mathf.Sign(vsp) * 9) {
+                gameObject.transform.Translate(0.0001f,0,0);
+            }
+           // gameObject.transform.SetPositionAndRotation(new Vector3(posx, Mathf.Sign(vsp) * 9, 0), new Quaternion());
+            vsp = 0;
+        }
+        */
+        //gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime, vsp * Time.deltaTime, 0));
 
         if (up == down) {
             if (Mathf.Abs(vsp) > 0.2)
@@ -74,7 +116,8 @@ public class PlayerMovement : MonoBehaviour
             else { hsp = 0; }
         }
 
-        gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime,vsp * Time.deltaTime,0));
+       
+       // gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime,vsp * Time.deltaTime,0));
     }
 
     public void GameOver() 
