@@ -9,7 +9,7 @@ public class TitleScreen : MonoBehaviour
     public GameObject cur;
     private bool up, down, select, canMove;
     public float timer;
-    //public GameObject screen;
+    public GameObject screen;
     //private Color col;
     //public var col = screen.GetComponent<Renderer>().material.color;
     //currently too sleepy to deal with this, GN
@@ -19,8 +19,9 @@ public class TitleScreen : MonoBehaviour
         canMove = true;
         timer = 0;
         // screen.GetComponent<Color>;
-       // col = screen.GetComponent<SpriteRenderer>().color;
+        // col = screen.GetComponent<SpriteRenderer>().color;
         //col.a = 0f;
+        screen.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
     }
 
     void Update()
