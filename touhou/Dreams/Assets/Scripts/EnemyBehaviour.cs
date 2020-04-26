@@ -99,7 +99,6 @@ public class EnemyBehaviour : MonoBehaviour
         if (enemyHealth <= 0 || gameObject.transform.position.x <= -20)
         {
             Destroy(gameObject);
-
             if (enemyHealth <= 0) 
             {
                 var player = FindObjectOfType<PlayerMovement>();
@@ -107,7 +106,8 @@ public class EnemyBehaviour : MonoBehaviour
                 player.score++;
                 if (pHealth < 8 && pHealth > 0) {
                     if (1/Random.Range(1, pHealth) == 1) {
-                        Instantiate(healthPiece);
+                        var m = Instantiate(healthPiece);
+                        m.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     }
                 }
                 Vector2 poofPos = GeneratePoofPosition();

@@ -8,20 +8,24 @@ public class TitleScreen : MonoBehaviour
     public int cursor = 0;
     public GameObject cur;
     private bool up, down, select, canMove;
-    public float timer;
+    private float timer;
     public GameObject screen;
-    //private Color col;
+    private SpriteRenderer Sprite;
+    private Color col;
     //public var col = screen.GetComponent<Renderer>().material.color;
     //currently too sleepy to deal with this, GN
     void Start()
     {
         up = down = select = false;
         canMove = true;
-        timer = 0;
-        // screen.GetComponent<Color>;
+        timer = 2;
+        //screen.GetComponent<Color>;
         // col = screen.GetComponent<SpriteRenderer>().color;
         //col.a = 0f;
-        screen.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+        Sprite = screen.GetComponent<SpriteRenderer>();
+        //screen.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+        Sprite.color = new Color(0f, 0f, 0f, 0f);
+
     }
 
     void Update()
@@ -42,17 +46,18 @@ public class TitleScreen : MonoBehaviour
 
         if (select)
         {
-            timer = 1;
+            timer = 0;
             canMove = false;
         }
-        if (timer >= 0) {
+        if (timer <= 1) {
             //change the alpha values of the current number making it look like its blinking in and out
             //make the bullet move to the edge of the screen
             cur.transform.Translate(Time.deltaTime * 20, 0, 0);
             //fadeout
-            //col.a = 1-timer;
-            timer -= Time.deltaTime;
+            //Sprite.color = new Color(0f, 0f, 0f, timer);
+            screen.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, (cur.transform.position.x)/15);
         }
+        timer += Time.deltaTime;
         if (cur.transform.position.x > 15) {
             switch (cursor)
             {
