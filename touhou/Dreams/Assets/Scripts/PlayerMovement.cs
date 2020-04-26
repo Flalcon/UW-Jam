@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            Instantiate(LS);
+            LS.SetActive(true);
             Destroy(gameObject);
             
         }
