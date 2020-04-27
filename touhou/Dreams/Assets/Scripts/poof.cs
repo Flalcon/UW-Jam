@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Poof : MonoBehaviour
+public class poof : MonoBehaviour
 {
     public void PrintEvent(int die)
     {
