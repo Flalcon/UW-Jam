@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Poof
   - Health
+  - Wave
   layers:
   - Default
   - TransparentFX

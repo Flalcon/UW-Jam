@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigPlayerWave : MonoBehaviour
+public class ReverseWave : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.x <= 15)
+        if (gameObject.transform.position.x >= -15)
         {
-            gameObject.transform.Translate(new Vector3(10f * Time.deltaTime, 0, 0));
+            gameObject.transform.Translate(new Vector3(-10f * Time.deltaTime, 0, 0));
         }
         else
         {
@@ -40,7 +40,8 @@ public class BigPlayerWave : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("big player wave used");
-        } else
+        }
+        else
         {
             Destroy(collision.gameObject);
         }

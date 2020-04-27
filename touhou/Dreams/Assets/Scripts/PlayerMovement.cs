@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public int playerHealth = 8;
     public int bombCount = 2;
     private float posx, posy;
-    public GameObject PB, LS, BPB;
+    public GameObject PB, LS, BPB, RBPB;
     public int score;
     private bool isInvincible = false;
 
@@ -42,6 +42,9 @@ public class PlayerMovement : MonoBehaviour
             bombCount--;
             GameObject BMB = Instantiate(BPB);
             BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+            GameObject RBMB = Instantiate(RBPB);
+            RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
         }
 
         if (playerHealth <= 0)

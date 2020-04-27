@@ -1093,6 +1093,7 @@ MonoBehaviour:
   PB: {fileID: 3922044402094995999, guid: b7913fdbb4803b549a2deb318c12ca4f, type: 3}
   LS: {fileID: 1754736503}
   BPB: {fileID: 6355087733993807203, guid: 5cd1bb55903b530408ebffff0b8eabff, type: 3}
+  RBPB: {fileID: 6018981420332836511, guid: 1b164b865a1c28449893ea784b69202b, type: 3}
   score: 0
 --- !u!212 &600350786
 SpriteRenderer:
