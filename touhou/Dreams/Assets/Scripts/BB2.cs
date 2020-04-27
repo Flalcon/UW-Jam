@@ -19,7 +19,7 @@ public class BB2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.x >= -10)
+        if (gameObject.transform.position.x >= -15)
         {
             gameObject.transform.Translate(dir * 1.25f * -Time.deltaTime);
         }

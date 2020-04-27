@@ -21,5 +21,10 @@ public class BigBullet : MonoBehaviour
         //gameObject.transform.LookAt(player);
         gameObject.transform.Translate(-Time.deltaTime * Mathf.Pow(2,tim) * 2, 0, 0);
         tim += Time.deltaTime;
+
+        if (gameObject.transform.position.x <= -15)
+        {
+            Destroy(gameObject);
+        }
     }
 }
