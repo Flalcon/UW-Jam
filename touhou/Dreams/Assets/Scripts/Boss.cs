@@ -15,6 +15,7 @@ public class Boss : MonoBehaviour
     private GameObject player;
     //private GameObject winScreen;
     private GameObject spawnManager;
+    public GameObject BPB, RBPB;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,12 @@ public class Boss : MonoBehaviour
                 //winScreen.SetActive(true);
 
                 spawnManager.GetComponent<SpawnManager>().spawning = true;
+
+                GameObject BMB = Instantiate(BPB);
+                BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+                GameObject RBMB = Instantiate(RBPB);
+                RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
             }
 
             bulletTimer1 -= Time.deltaTime;

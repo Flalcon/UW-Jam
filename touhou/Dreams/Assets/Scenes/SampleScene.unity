@@ -1436,12 +1436,14 @@ MonoBehaviour:
   playerObject: {fileID: 600350783}
   xSpawnPos: 11
   ySpawnRange: 4.5
+  level: 1
   tolevel: 3
+  spawning: 1
   winScreen: {fileID: 1584095934}
   BPB: {fileID: 6355087733993807203, guid: 5cd1bb55903b530408ebffff0b8eabff, type: 3}
   RBPB: {fileID: 6018981420332836511, guid: 1b164b865a1c28449893ea784b69202b, type: 3}
   bossLevel: 5
-  boss: {fileID: 8724166514380758610, guid: 453cf62b25d168d4193726b1e6ba4cdc, type: 3}
+  boss: {fileID: 7257202838583989620, guid: 453cf62b25d168d4193726b1e6ba4cdc, type: 3}
 --- !u!1 &706083213
 GameObject:
   m_ObjectHideFlags: 0
