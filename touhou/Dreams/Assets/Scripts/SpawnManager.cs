@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject playerObject;
     public float xSpawnPos = 10.0f;
     public float ySpawnRange = 4.5f;
-    private int level = 1;
+    public int level = 1;
     public int tolevel = 3;
     private int maxlevel;
     private bool spawning = true;
@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
                     RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
                     StartCoroutine(bossSpawnTimer());
-                    Instantiate(boss, new Vector2(14, 0), boss.transform.rotation);
+                    Instantiate(boss, new Vector2(14.5f, 0), boss.transform.rotation);
                 }
                 
                 if (level >= maxlevel) {
@@ -77,6 +77,6 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator bossSpawnTimer()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
     }
 }

@@ -43,7 +43,7 @@ public class Boss : MonoBehaviour
             else if (bossHealth <= 0)
             {
                 var player = FindObjectOfType<PlayerMovement>();
-                player.score += 50;
+                player.score += 100;
                 Destroy(gameObject);
             }
 
