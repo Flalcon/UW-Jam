@@ -16,10 +16,12 @@ public class SpawnManager : MonoBehaviour
     private bool spawning = true;
     public GameObject winScreen;
     public GameObject BPB, RBPB;
+    public int bossLevel = 5;
+    public GameObject boss;
     
     void Start()
     {
-        maxlevel = 5;
+        maxlevel = 6;
     }
     
     void Update()
@@ -34,20 +36,31 @@ public class SpawnManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemyObject, spawnPosition, enemyObject.transform.rotation);
             int type = Mathf.RoundToInt(Random.Range(0,level));
             newEnemy.GetComponent<EnemyBehaviour>().type = type;//Implement something so we can set spawn positions later(only do this if we have time)
+            
             //if (the player has killed x many enemies) {level up, secondsBetweenSpawn gets smaller}
-            if (playerObject.GetComponent<PlayerMovement>().score >= tolevel) {
+            if (playerObject.GetComponent<PlayerMovement>().score >= tolevel) 
+            {
                 playerObject.GetComponent<PlayerMovement>().score = 0;
                 tolevel += 2;
                 level++;
                 secondsBetweenSpawn--;
-                if (level >= maxlevel) {
+                
+                if (level == bossLevel)
+                {
                     spawning = false;
-                    
+
                     GameObject BMB = Instantiate(BPB);
                     BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
                     GameObject RBMB = Instantiate(RBPB);
                     RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+                    StartCoroutine(bossSpawnTimer());
+                    Instantiate(boss);
+                }
+                
+                if (level >= maxlevel) {
+                    spawning = false;
                     
                     winScreen.SetActive(true);
                 }
@@ -60,5 +73,10 @@ public class SpawnManager : MonoBehaviour
     {
         float yPos = Random.Range(-ySpawnRange, ySpawnRange);
         return new Vector2(xSpawnPos, yPos);
+    }
+
+    IEnumerator bossSpawnTimer()
+    {
+        yield return new WaitForSeconds(2.0f);
     }
 }
