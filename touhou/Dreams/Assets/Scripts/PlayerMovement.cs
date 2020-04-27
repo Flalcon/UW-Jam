@@ -120,11 +120,6 @@ public class PlayerMovement : MonoBehaviour
        // gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime,vsp * Time.deltaTime,0));
     }
 
-    public void GameOver() 
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy Bullet") || collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Enemy"))
@@ -149,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator iFrameRoutine()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         isInvincible = false;
     }
 }
