@@ -44,7 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
                 break;
 
             case 2:
-                spd = 2f;
+                spd = 3f;
                 enemyHealth = 40;
                 gameObject.GetComponent<SpriteRenderer>().sprite = laserEye;
                 animatorOverrideController["Enemy"] = butterfly;
@@ -98,7 +98,7 @@ public class EnemyBehaviour : MonoBehaviour
                 }
                 break;
             case 2:
-                gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, Mathf.Sin(BT), 0));
+                gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, Mathf.Sin(BT * 4) * Time.deltaTime * 7f, 0));
 
 
                 anim.SetBool("Attacking", true);
