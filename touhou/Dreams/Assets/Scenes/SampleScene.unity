@@ -2304,6 +2304,7 @@ GameObject:
   - component: {fileID: 1342737126}
   - component: {fileID: 1342737129}
   - component: {fileID: 1342737128}
+  - component: {fileID: 1342737130}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -2388,7 +2389,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.16418998, y: 0.896193}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2399,7 +2400,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.984375, y: 7.828125}
+  m_Size: {x: 1.2236251, y: 4.8806715}
   m_EdgeRadius: 0
 --- !u!114 &1342737129
 MonoBehaviour:
@@ -2418,6 +2419,27 @@ MonoBehaviour:
   EB: {fileID: 3743485393095861708, guid: 59c8197f324b1a74b80213d7c4af53ec, type: 3}
   bulletspd: 3
   focalPoint: {fileID: 1813246924}
+--- !u!50 &1342737130
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342737125}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1484889402
 GameObject:
   m_ObjectHideFlags: 0

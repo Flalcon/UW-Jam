@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     public float bulletspd = 3.0f;
     public GameObject focalPoint;
     private float BT;
+    private bool isInvuln = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,14 @@ public class Boss : MonoBehaviour
             gameObject.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         } else
         {
+            isInvuln = false;
+
             if (bossHealth >= 1000)
             {
                 fireBullets1();
+            } else if (bossHealth < 1000 && bossHealth > 0)
+            {
+
             } else if (bossHealth <= 0)
             {
                 Destroy(gameObject);
@@ -53,7 +59,7 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player Bullet"))
+        if (collision.gameObject.CompareTag("Player Bullet") && isInvuln == false)
         {
             Destroy(collision.gameObject);
             bossHealth -= 20;
