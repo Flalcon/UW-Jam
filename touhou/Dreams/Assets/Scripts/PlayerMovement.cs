@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float spd = 0.01f;
     public int playerHealth = 8;
     private float posx, posy;
-    public GameObject PB, LS;
+    public GameObject PB, LS, BPB;
     public int score;
     private bool isInvincible = false;
 
@@ -38,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
         bool bomb = Input.GetKeyDown("m") || Input.GetKeyDown("x");
         if (bomb)
         {
-            //bomb code here
+            GameObject BMB = Instantiate(BPB);
+            BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
         }
 
         if (playerHealth <= 0)
