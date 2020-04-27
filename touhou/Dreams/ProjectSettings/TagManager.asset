@@ -11,6 +11,7 @@ TagManager:
   - Poof
   - Health
   - Wave
+  - Boss
   layers:
   - Default
   - TransparentFX

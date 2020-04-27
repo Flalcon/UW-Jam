@@ -25,7 +25,7 @@ public class ReverseWave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Wave") || collision.CompareTag("Health"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Wave") || collision.CompareTag("Health") || collision.CompareTag("Boss"))
         {
             Debug.Log("big player wave used");
         }
