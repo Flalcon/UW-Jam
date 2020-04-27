@@ -19,8 +19,17 @@ public class BB2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gameObject.transform.LookAt(player);
-        gameObject.transform.Translate(-Time.deltaTime * Mathf.Pow(2, tim) * 2, 0, 0);
-        tim += Time.deltaTime;
+        if (gameObject.transform.position.x >= -10)
+        {
+            gameObject.transform.Translate(dir * 1.25f * -Time.deltaTime);
+        }
+        else
+        {
+            //make a pool of objects set up instead of destroying each object
+            Destroy(gameObject);
+        }
+
+        //gameObject.transform.Translate(-Time.deltaTime * Mathf.Pow(2, tim) * 2, 0, 0);
+        //tim += Time.deltaTime;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -10,7 +11,6 @@ public class Boss : MonoBehaviour
     public float bulletspd = 3.0f;
     public GameObject focalPoint;
     private float bulletTimer1;
-    private float bulletTimer2;
     private float bigBulletTimer;
     private bool isInvuln = true;
 
@@ -49,7 +49,7 @@ public class Boss : MonoBehaviour
             }
 
             bulletTimer1 -= Time.deltaTime;
-            bulletTimer2 -= Time.deltaTime;
+            bigBulletTimer -= Time.deltaTime;
         }
     }
 
@@ -67,19 +67,15 @@ public class Boss : MonoBehaviour
 
     private void fireBullets2()
     {
-        if (bulletTimer2 <= 0)
+        if (bigBulletTimer <= 0)
         {
-            GameObject B = Instantiate(EB);
-            B.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
-            B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
-
-            bulletTimer2 = 0.3f;
+            Vector2 BBDirection = new Vector2(bulletspd, Random.Range(-bulletspd * 0.4f, bulletspd * 0.4f));
 
             GameObject BB = Instantiate(BEB);
             BB.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
-            BB.GetComponent<BB2>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
+            BB.GetComponent<BB2>().dir = BBDirection;
 
-            bigBulletTimer = 2.0f;
+            bigBulletTimer = 1.0f;
         }
     }
 
