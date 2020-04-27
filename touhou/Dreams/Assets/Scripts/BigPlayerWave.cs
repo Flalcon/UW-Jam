@@ -23,21 +23,9 @@ public class BigPlayerWave : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wave"))
-        {
-            Debug.Log("wave collided");
-        }
-        else
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Wave") || collision.CompareTag("Health"))
         {
             Debug.Log("big player wave used");
         } else
