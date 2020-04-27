@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -57,9 +56,9 @@ public class Boss : MonoBehaviour
     {
         if (bulletTimer1 <= 0)
         {
-            GameObject B = Instantiate(EB);
-            B.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
-            B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
+            GameObject newBullet = Instantiate(EB);
+            newBullet.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
+            newBullet.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
 
             bulletTimer1 = 0.075f;
         }
@@ -69,11 +68,17 @@ public class Boss : MonoBehaviour
     {
         if (bigBulletTimer <= 0)
         {
-            Vector2 BBDirection = new Vector2(bulletspd, Random.Range(-bulletspd * 0.4f, bulletspd * 0.4f));
+            Vector2 BigBulletDirection = new Vector2(bulletspd, Random.Range(-bulletspd * 0.4f, bulletspd * 0.4f));
 
-            GameObject BB = Instantiate(BEB);
-            BB.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
-            BB.GetComponent<BB2>().dir = BBDirection;
+            GameObject BigBullet1 = Instantiate(BEB);
+            BigBullet1.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
+            BigBullet1.GetComponent<BB2>().dir = BigBulletDirection;
+
+            /*
+            GameObject BigBullet2 = Instantiate(BEB);
+            BigBullet2.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
+            BigBullet2.GetComponent<BB2>().dir = BigBulletDirection * new Vector2(1, -1);
+            */
 
             bigBulletTimer = 1.0f;
         }
