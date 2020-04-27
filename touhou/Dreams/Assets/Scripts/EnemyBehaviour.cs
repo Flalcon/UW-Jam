@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float bulletspd;
     public Sprite laserEye;
     private Vector3 newpos;
+   // public Animator anim;
 
     void Start()
     {
@@ -65,6 +66,8 @@ public class EnemyBehaviour : MonoBehaviour
                     D.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     D.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
                     BT = 2;
+                    //anim.SetBool("Attacking", true);
+                    //anim.SetBool("Attacking", false);   
                 }
                 break;
             case 1:
@@ -75,6 +78,8 @@ public class EnemyBehaviour : MonoBehaviour
                     B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
                     BT = 0.2f;
+                    //anim.SetBool("Attacking", true);
+                    //anim.SetBool("Attacking", false);
                 }
                 break;
             case 2:
