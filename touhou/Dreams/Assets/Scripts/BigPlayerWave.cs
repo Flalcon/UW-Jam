@@ -19,7 +19,6 @@ public class BigPlayerWave : MonoBehaviour
         }
         else
         {
-            //make a pool of objects set up instead of destroying each object
             Destroy(gameObject);
         }
     }

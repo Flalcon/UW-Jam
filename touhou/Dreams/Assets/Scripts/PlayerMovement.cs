@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float hsp = 0; public float vsp = 0;
     public float spd = 0.01f;
     public int playerHealth = 8;
+    public int bombCount = 2;
     private float posx, posy;
     public GameObject PB, LS, BPB;
     public int score;
@@ -36,8 +37,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         bool bomb = Input.GetKeyDown("m") || Input.GetKeyDown("x");
-        if (bomb)
+        if (bomb && bombCount > 0)
         {
+            bombCount--;
             GameObject BMB = Instantiate(BPB);
             BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
         }
