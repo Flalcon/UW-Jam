@@ -12,6 +12,7 @@ TagManager:
   - Health
   - Wave
   - Boss
+  - Bomb
   layers:
   - Default
   - TransparentFX
