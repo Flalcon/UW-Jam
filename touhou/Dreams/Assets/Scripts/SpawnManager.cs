@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
                     RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
                     StartCoroutine(bossSpawnTimer());
-                    Instantiate(boss);
+                    Instantiate(boss, new Vector2(14, 0), boss.transform.rotation);
                 }
                 
                 if (level >= maxlevel) {
