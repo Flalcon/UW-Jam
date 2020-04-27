@@ -11,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int type;
     public float spd;
     public float bulletspd;
-    public Sprite laserEye;
+    public Sprite laserEye, buttereye;
     private Vector3 newpos;
 
     public AnimationClip butterfly, spewer, blaster;
@@ -48,10 +48,11 @@ public class EnemyBehaviour : MonoBehaviour
                 enemyHealth = 40;
                 gameObject.GetComponent<SpriteRenderer>().sprite = laserEye;
                 animatorOverrideController["Enemy"] = butterfly;
+
                 break;
 
             case 3:
-                animatorOverrideController["Enemy"] = blaster;
+                //animatorOverrideController["Enemy"] = null;
                 spd = 20f;
                 enemyHealth = 200;
                 gameObject.GetComponent<SpriteRenderer>().sprite = laserEye;
@@ -81,8 +82,8 @@ public class EnemyBehaviour : MonoBehaviour
                     D.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     D.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
                     BT = 2;
-                    //anim.SetBool("Attacking", true);
-                    //anim.SetBool("Attacking", false);   
+                    anim.SetBool("Attacking", true);
+                    
                 }
                 break;
             case 1:
@@ -93,12 +94,14 @@ public class EnemyBehaviour : MonoBehaviour
                     B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, type * Random.Range(-bulletspd, bulletspd));
                     BT = 0.2f;
-                    //anim.SetBool("Attacking", true);
-                    //anim.SetBool("Attacking", false);
+                    anim.SetBool("Attacking", true);
                 }
                 break;
             case 2:
-                gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, 0, 0));
+                gameObject.transform.Translate(new Vector3(-spd * Time.deltaTime, Mathf.Sin(BT), 0));
+
+
+                anim.SetBool("Attacking", true);
                 break;
             case 3:
 
@@ -144,6 +147,13 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(collision.gameObject);
             enemyHealth -= 20;
         }
+    }
+
+    public void Close() {
+
+        anim.SetBool("Attacking", false);
+
+
     }
 
     Vector2 GeneratePoofPosition()

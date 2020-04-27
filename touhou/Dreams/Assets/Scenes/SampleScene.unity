@@ -1721,6 +1721,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 749600381802562827, guid: 0139332500363dd4782037ec59646865,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5166958929016353594, guid: c7bd3293c1e8e8148b4e8bd5752e5290,
+        type: 3}
     - target: {fileID: 749600381802562826, guid: 0139332500363dd4782037ec59646865,
         type: 3}
       propertyPath: butterfly
@@ -1739,8 +1745,14 @@ PrefabInstance:
     - target: {fileID: 749600381802562826, guid: 0139332500363dd4782037ec59646865,
         type: 3}
       propertyPath: type
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 749600381802562826, guid: 0139332500363dd4782037ec59646865,
+        type: 3}
+      propertyPath: buttereye
+      value: 
+      objectReference: {fileID: -7846102880732152035, guid: 0718bf247c41a664692e85f5f2b87e77,
+        type: 3}
     - target: {fileID: 345612023700744683, guid: 0139332500363dd4782037ec59646865,
         type: 3}
       propertyPath: m_BodyType
