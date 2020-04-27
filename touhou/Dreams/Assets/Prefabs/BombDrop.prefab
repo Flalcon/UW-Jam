@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1864663446862064477}
   - component: {fileID: 1864663446862064475}
   - component: {fileID: 1864663446862064474}
+  - component: {fileID: -4019130917767705428}
   m_Layer: 0
   m_Name: BombDrop
   m_TagString: Bomb
@@ -129,3 +130,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &-4019130917767705428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864663446862064479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4f9d9a1e893164085c269a72932b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
