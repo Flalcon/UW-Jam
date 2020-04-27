@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     public int level = 1;
     public int tolevel = 3;
     private int maxlevel;
-    private bool spawning = true;
+    public bool spawning = true;
     public GameObject winScreen;
     public GameObject BPB, RBPB;
     public int bossLevel = 5;

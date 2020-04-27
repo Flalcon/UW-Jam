@@ -12,11 +12,16 @@ public class Boss : MonoBehaviour
     private float bulletTimer1;
     private float bigBulletTimer;
     private bool isInvuln = true;
+    private GameObject player;
+    //private GameObject winScreen;
+    private GameObject spawnManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        //winScreen = GameObject.Find("Win Screen");
+        spawnManager = GameObject.Find("Spawn Manager");
     }
 
     // Update is called once per frame
@@ -42,9 +47,14 @@ public class Boss : MonoBehaviour
             
             else if (bossHealth <= 0)
             {
-                var player = FindObjectOfType<PlayerMovement>();
-                player.score += 100;
+                int bossEXP = 100;
+                player.GetComponent<PlayerMovement>().score = bossEXP;
+
                 Destroy(gameObject);
+
+                //winScreen.SetActive(true);
+
+                spawnManager.GetComponent<SpawnManager>().spawning = true;
             }
 
             bulletTimer1 -= Time.deltaTime;
