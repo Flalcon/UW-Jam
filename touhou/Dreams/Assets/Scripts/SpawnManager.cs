@@ -45,7 +45,7 @@ public class SpawnManager : MonoBehaviour
                 level++;
                 secondsBetweenSpawn--;
                 
-                if (level == bossLevel)
+                if (level == maxlevel)
                 {
                     spawning = false;
 

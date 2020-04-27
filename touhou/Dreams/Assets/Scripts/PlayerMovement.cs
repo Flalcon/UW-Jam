@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
             Sprite.color = new Color(1, 1, 1, Mathf.RoundToInt(blink));
             if (blink < 1) { blink += Time.deltaTime * 8; }
             else { blink = 0; }
-
-
         }
         else { Sprite.color = new Color(1, 1, 1, 1); }
 
