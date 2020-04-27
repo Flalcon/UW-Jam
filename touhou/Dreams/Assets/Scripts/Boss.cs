@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int bossHealth = 1000;
+    public int bossHealth = 2000;
     public float speed = 2.0f;
     public GameObject EB;
     public float bulletspd = 3.0f;
     public GameObject focalPoint;
+    private float BT;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,15 @@ public class Boss : MonoBehaviour
             gameObject.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         } else
         {
-            fireBullets1();
+            if (bossHealth >= 1000)
+            {
+                fireBullets1();
+            } else if (bossHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+            BT -= Time.deltaTime;
 
             Debug.Log("good to go");
         }
@@ -32,8 +41,22 @@ public class Boss : MonoBehaviour
 
     private void fireBullets1()
     {
-        GameObject B = Instantiate(EB);
-        B.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
-        B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
+        if (BT <= 0)
+        {
+            GameObject B = Instantiate(EB);
+            B.transform.SetPositionAndRotation(focalPoint.gameObject.transform.position, new Quaternion());
+            B.GetComponent<EnemyBullets>().dir = new Vector2(bulletspd, Random.Range(-bulletspd, bulletspd));
+
+            BT = 0.075f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player Bullet"))
+        {
+            Destroy(collision.gameObject);
+            bossHealth -= 20;
+        }
     }
 }
