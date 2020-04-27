@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     private int maxlevel;
     private bool spawning = true;
     public GameObject winScreen;
+    public GameObject BPB, RBPB;
     
     void Start()
     {
@@ -41,6 +42,13 @@ public class SpawnManager : MonoBehaviour
                 secondsBetweenSpawn--;
                 if (level >= maxlevel) {
                     spawning = false;
+                    
+                    GameObject BMB = Instantiate(BPB);
+                    BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+                    GameObject RBMB = Instantiate(RBPB);
+                    RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+                    
                     winScreen.SetActive(true);
                 }
             }
