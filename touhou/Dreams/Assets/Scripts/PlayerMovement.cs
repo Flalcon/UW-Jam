@@ -35,6 +35,12 @@ public class PlayerMovement : MonoBehaviour
             B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
         }
 
+        bool bomb = Input.GetKeyDown("m") || Input.GetKeyDown("x");
+        if (bomb)
+        {
+            //bomb code here
+        }
+
         if (playerHealth <= 0)
         {
             LS.SetActive(true);
