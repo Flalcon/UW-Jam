@@ -12,20 +12,35 @@ public class PlayerMovement : MonoBehaviour
     public int bombCount = 2;
     private float posx, posy;
     public GameObject PB, LS, BPB, RBPB;
+    private SpriteRenderer Sprite;
     public int score;
     private bool isInvincible = false;
+    private float blink;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Sprite = gameObject.GetComponent<SpriteRenderer>();
+        blink = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        if (isInvincible)
+        {
+            Sprite.color = new Color(1, 1, 1, Mathf.RoundToInt(blink));
+            if (blink < 1) { blink += Time.deltaTime * 8; }
+            else { blink = 0; }
+
+
+        }
+        else { Sprite.color = new Color(1, 1, 1, 1); }
+
         if (canMove) {
            Movement();
         }
