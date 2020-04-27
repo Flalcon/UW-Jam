@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -12,31 +13,45 @@ public class EnemyBehaviour : MonoBehaviour
     public float bulletspd;
     public Sprite laserEye;
     private Vector3 newpos;
-   // public Animator anim;
+
+    public AnimationClip butterfly, spewer, blaster;
+    //private AnimatorOverrideController anim;
+    private Animator anim;
+    protected AnimatorOverrideController animatorOverrideController;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+
+        animatorOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
+        anim.runtimeAnimatorController = animatorOverrideController;
+        //anim = gameObject.GetComponent<AnimatorOverrideController>();
+
         //there are 2 types of enemy movement: straightforward and LERP
         //Lerp Enemies take longer to fire, but have more powerful attacks & more health
         //straightforward enemies have simpler attacks but start firing asap
         switch (type)
         {
             case 0:
+              // animatorOverrideController["Enemy"] = spewer;
                 spd = 0.5f;
                 enemyHealth = 80;
                 break;
             case 1:
+                //animatorOverrideController["attack"] = spewer;
                 spd = 2f;
                 enemyHealth = 100;
                 break;
 
             case 2:
-                spd = 20f;
+                spd = 2f;
                 enemyHealth = 40;
                 gameObject.GetComponent<SpriteRenderer>().sprite = laserEye;
+                animatorOverrideController["Enemy"] = butterfly;
                 break;
 
             case 3:
+                animatorOverrideController["Enemy"] = blaster;
                 spd = 20f;
                 enemyHealth = 200;
                 gameObject.GetComponent<SpriteRenderer>().sprite = laserEye;
