@@ -76,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         bool left = Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
         bool right = Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow);
          
-       // bool bomb = Input.GetKey("n") || Input.GetKey(KeyCode.Space);
         if (up)   { vsp += spd; }
         if (down) { vsp -= spd; }
         if (left) { hsp -= spd; }
@@ -104,25 +103,10 @@ public class PlayerMovement : MonoBehaviour
         {
             vsp = 0;
             while (Mathf.Abs(gameObject.transform.position.y) < 4.5f) {
-                //gameObject.transform.SetPositionAndRotation(new Vector3(posx, Mathf.Sign(posy) * 4.5f, 0), new Quaternion());
                 gameObject.transform.Translate(new Vector3(0, Mathf.Sign(posy) * 0.00001f, 0));
 
             }
         }
-        /*
-        if (Mathf.Abs(posy + vsp) < 9)
-        {
-            gameObject.transform.Translate(new Vector3(0, vsp * Time.deltaTime, 0));
-        }
-        else {
-            while (gameObject.transform.position.y <= Mathf.Sign(vsp) * 9) {
-                gameObject.transform.Translate(0.0001f,0,0);
-            }
-           // gameObject.transform.SetPositionAndRotation(new Vector3(posx, Mathf.Sign(vsp) * 9, 0), new Quaternion());
-            vsp = 0;
-        }
-        */
-        //gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime, vsp * Time.deltaTime, 0));
 
         if (up == down) {
             if (Mathf.Abs(vsp) > 0.2)
@@ -140,9 +124,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else { hsp = 0; }
         }
-
-       
-       // gameObject.transform.Translate(new Vector3(hsp * Time.deltaTime,vsp * Time.deltaTime,0));
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -163,6 +145,13 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHealth++;
             playerHealth = Mathf.Clamp(playerHealth, 0, 8);
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            bombCount++;
+            bombCount = Mathf.Clamp(bombCount, 0, 2);
             Destroy(collision.gameObject);
         }
     }

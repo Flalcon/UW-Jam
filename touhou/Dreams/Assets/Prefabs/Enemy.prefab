@@ -102,6 +102,7 @@ MonoBehaviour:
   poof: {fileID: 6335486997320985641, guid: cab83ae2182a5b646b01be3c334a0936, type: 3}
   healthPiece: {fileID: 4247396520633259755, guid: 6dd0cfecfeabee24184edf071b3a8d8e,
     type: 3}
+  bomb: {fileID: 1864663446862064479, guid: b4884701ef5fe0b48a17aad19c3678df, type: 3}
   BT: 0
   enemyHealth: 0
   type: 2

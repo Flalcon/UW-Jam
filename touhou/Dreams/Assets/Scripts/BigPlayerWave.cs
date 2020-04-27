@@ -25,7 +25,7 @@ public class BigPlayerWave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Wave") || collision.CompareTag("Health") || collision.CompareTag("Boss"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Wave") || collision.CompareTag("Health") || collision.CompareTag("Boss") || collision.CompareTag("Bomb"))
         {
             Debug.Log("big player wave used");
         } else

@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public GameObject EB, EL, poof, healthPiece;
+    public GameObject EB, EL, poof, healthPiece, bomb;
     public float BT;
     public int enemyHealth;
     public int type;
@@ -124,17 +124,32 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
             if (enemyHealth <= 0) 
             {
+
                 var player = FindObjectOfType<PlayerMovement>();
                 int pHealth = player.playerHealth;
+                int pbomb = player.bombCount;
                 player.score++;
+
                 if (pHealth < 8 && pHealth > 0) {
                     if (1/Random.Range(1, pHealth) == 1) {
                         var m = Instantiate(healthPiece);
                         m.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
                     }
                 }
-                Vector2 poofPos = GeneratePoofPosition();
-                Instantiate(poof, poofPos, poof.transform.rotation);
+
+                if (pbomb < 2)
+                {
+                    if (1 / Random.Range(1, pbomb + 3) == 1)
+                    {
+                        var m = Instantiate(bomb);
+                        m.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
+                    }
+                }
+
+
+
+
+                Instantiate(poof, gameObject.transform.position, poof.transform.rotation);
             }
         }
 
@@ -152,14 +167,6 @@ public class EnemyBehaviour : MonoBehaviour
     public void Close() {
 
         anim.SetBool("Attacking", false);
-
-
     }
-
-    Vector2 GeneratePoofPosition()
-    {
-        float yPos = transform.position.y;
-        float xPos = transform.position.x;
-        return new Vector2(xPos, yPos);
-    }
+    
 }
