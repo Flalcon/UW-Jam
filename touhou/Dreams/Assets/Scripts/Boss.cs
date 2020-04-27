@@ -58,10 +58,10 @@ public class Boss : MonoBehaviour
                 spawnManager.GetComponent<SpawnManager>().spawning = true;
 
                 GameObject BMB = Instantiate(BPB);
-                BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+                BMB.transform.SetPositionAndRotation(player.transform.position, transform.rotation);
 
                 GameObject RBMB = Instantiate(RBPB);
-                RBMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
+                RBMB.transform.SetPositionAndRotation(player.transform.position, transform.rotation);
             }
 
             bulletTimer1 -= Time.deltaTime;
