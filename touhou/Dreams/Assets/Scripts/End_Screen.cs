@@ -33,7 +33,7 @@ public class End_Screen : MonoBehaviour
         }
 
 
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && timer >= 0.75f)
         {
             s = true;
         }
