@@ -8,11 +8,13 @@ public class GameOver : MonoBehaviour
     private float ypos;
     public GameObject screen;
     private SpriteRenderer Sprite;
+    public GameObject aud;
 
     void Start()
     {
         screen.SetActive(true);
-
+        var a = aud.GetComponent<AudioSource>();
+        a.Stop();
     }
     
     void Update()
