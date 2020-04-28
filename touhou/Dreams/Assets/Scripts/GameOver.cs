@@ -22,9 +22,9 @@ public class GameOver : MonoBehaviour
         if (ypos< 0) {
             gameObject.transform.Translate(0,-Mathf.Lerp(ypos,0,1/5) * Time.deltaTime,0);
         }
-        screen.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 6+ypos);
+        screen.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, (6+ypos)/6);
         if (Input.anyKeyDown && ypos > -0.2f) {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }

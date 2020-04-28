@@ -62,7 +62,7 @@ public class TitleScreen : MonoBehaviour
             switch (cursor)
             {
                 case 0:
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(1);
                     break;
 
                 case 1:
