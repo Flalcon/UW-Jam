@@ -16,7 +16,7 @@ public class WinScreen : MonoBehaviour
 
     void Update()
     {
-        aud.GetComponent<AudioSource>().volume = timer;
+        aud.GetComponent<AudioSource>().volume = timer * 0.5f;
         GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 1-timer);
         i1.GetComponent<Image>().color = new Color(1f, 1f, 1f,  timer);
         i2.GetComponent<Image>().color = new Color(1f, 1f, 1f,  timer);
