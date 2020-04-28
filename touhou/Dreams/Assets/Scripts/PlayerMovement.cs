@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public int score;
     private bool isInvincible = false;
     private float blink;
+    public AudioClip pew, blam;
+    private AudioSource auds;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        auds = gameObject.GetComponent<AudioSource>();
         Sprite = gameObject.GetComponent<SpriteRenderer>();
         blink = 0;
     }
@@ -45,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         bool shoot = Input.GetKeyDown("n") || Input.GetKeyDown(KeyCode.Space);
         if (shoot) {
+            auds.PlayOneShot(pew);
            GameObject B = Instantiate(PB);
             B.transform.SetPositionAndRotation(gameObject.transform.position, new Quaternion());
         }
@@ -52,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         bool bomb = Input.GetKeyDown("m") || Input.GetKeyDown("x");
         if (bomb && bombCount > 0)
         {
+
+            auds.PlayOneShot(blam);
             bombCount--;
             GameObject BMB = Instantiate(BPB);
             BMB.transform.SetPositionAndRotation(transform.position, transform.rotation);
