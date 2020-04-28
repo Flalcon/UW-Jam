@@ -39,7 +39,7 @@ public class TitleScreen : MonoBehaviour
         }
         if (up) { cursor--; }
         if (down) { cursor++; }
-        cursor = Mathf.Clamp(cursor, 0, 1);
+        cursor = Mathf.Clamp(cursor, 0, 2);
 
         cur.transform.SetPositionAndRotation(new Vector3(cur.transform.position.x, -cursor * 2, 0),new Quaternion());
 
@@ -65,13 +65,21 @@ public class TitleScreen : MonoBehaviour
                     SceneManager.LoadScene(1);
                     break;
 
+
                 case 1:
+                    SceneManager.LoadScene(2);
+                    break;
+
+                case 2:
                 #if UNITY_EDITOR
                     UnityEditor.EditorApplication.isPlaying = false;
                 #else
                    Application.Quit();
                 #endif
                     break;
+
+
+
             }
         }
 
